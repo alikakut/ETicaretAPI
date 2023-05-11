@@ -20,7 +20,7 @@ namespace ETicaretAPI.Persistence
     {
         public static void AddPersistenceService(this IServiceCollection services)
         {
-            services.AddDbContext<ETicaretAPIDbContext>(options => options.UseNpgsql(Configuration.ConnectionStrings),ServiceLifetime.Singleton);
+            services.AddDbContext<ETicaretAPIDbContext>(options => options.UseNpgsql(Configuration.ConnectionStrings));
             services.AddScoped<ICustomerReadRepository ,CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository ,CustomerWriteRepository>();
             services.AddScoped<IProductReadRepository, ProductReadRepository>();
