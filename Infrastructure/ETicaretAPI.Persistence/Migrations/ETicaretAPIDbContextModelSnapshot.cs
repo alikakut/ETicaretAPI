@@ -24,9 +24,11 @@ namespace ETicaretAPI.Persistence.Migrations
 
             modelBuilder.Entity("ETicaretAPI.Domain.Entities.Customer", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
@@ -36,7 +38,6 @@ namespace ETicaretAPI.Persistence.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UpdateBy")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("UpdateDate")
@@ -49,9 +50,11 @@ namespace ETicaretAPI.Persistence.Migrations
 
             modelBuilder.Entity("ETicaretAPI.Domain.Entities.Order", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -60,18 +63,14 @@ namespace ETicaretAPI.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long>("CustomerId")
-                        .HasColumnType("bigint");
-
-                    b.Property<Guid>("CustomerId1")
-                        .HasColumnType("uuid");
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("UpdateBy")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("UpdateDate")
@@ -79,16 +78,18 @@ namespace ETicaretAPI.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId1");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("orders");
                 });
 
             modelBuilder.Entity("ETicaretAPI.Domain.Entities.Product", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
@@ -97,14 +98,13 @@ namespace ETicaretAPI.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long>("Price")
-                        .HasColumnType("bigint");
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
 
                     b.Property<int>("Stock")
                         .HasColumnType("integer");
 
                     b.Property<string>("UpdateBy")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("UpdateDate")
@@ -117,11 +117,11 @@ namespace ETicaretAPI.Persistence.Migrations
 
             modelBuilder.Entity("OrderProduct", b =>
                 {
-                    b.Property<Guid>("OrdersId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("OrdersId")
+                        .HasColumnType("integer");
 
-                    b.Property<Guid>("ProductsId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("integer");
 
                     b.HasKey("OrdersId", "ProductsId");
 
@@ -134,7 +134,7 @@ namespace ETicaretAPI.Persistence.Migrations
                 {
                     b.HasOne("ETicaretAPI.Domain.Entities.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerId1")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
