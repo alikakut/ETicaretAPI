@@ -1,5 +1,7 @@
-﻿using ETicaretAPI.Application.Repository.Orders;
+﻿using System.Net;
+using ETicaretAPI.Application.Repository.Orders;
 using ETicaretAPI.Application.Repository.Products;
+using ETicaretAPI.Application.ViewModels.Products;
 using ETicaretAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,47 +15,29 @@ namespace ETicaretAPI.API.Controllers
     {
         private readonly IProductReadRepository _productReadRepository;
         private readonly IProductWriteRepository _productWriteRepository;
-        private readonly IOrderWriteRepository _orderWriteRepository;
-        public ProductController(IProductReadRepository productReadRepository, IProductWriteRepository productWriteRepository, IOrderWriteRepository orderWriteRepository)
+        public ProductController(IProductReadRepository productReadRepository, IProductWriteRepository productWriteRepository)
         {
             _productReadRepository = productReadRepository;
             _productWriteRepository = productWriteRepository;
-            _orderWriteRepository = orderWriteRepository;
         }
 
-        //[HttpGet]
-        //public async Task Get()
-        //{
-        //    await _productWriteRepository.AddAsync(new() { Name = "product", Price = 200, Stock = 14, CreatedDate = DateTime.UtcNow,UpdateBy = DateTime.UtcNow.ToString() });
-        //    await _productWriteRepository.SaveAsync();
-
-        //}
         [HttpGet]
-        public async Task Get()
+        public async Task<ActionResult> Get()
         {
-            await _orderWriteRepository.AddAsync(new() { Description = "fnjdnvdjv", Address = "istanbul", UpdateBy=DateTime.UtcNow.ToString(), Customer = new Domain.Entities.Customer
-            {
-                Id = 3,
-                Name ="bilgisayar"
-            }
-            });
-            await _orderWriteRepository.SaveAsync();
-
+            return Ok(_productReadRepository.GetAll());
         }
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] Product product)
+        public IActionResult Add([FromBody] Product product)
         {
-            await _productWriteRepository.AddAsync(product);
-            int affectedRows = await _productWriteRepository.SaveAsync();
+            return Ok(_productWriteRepository.Add(product));
+        }
+        //[HttpPut]
+        //public async Task<ActionResult> Put( VM_Update_Product model)
+        //{
+        //    await _productReadRepository.GetByIdAsync(new()
+        //        );
 
-            if (affectedRows > 0)
-            {
-                return Ok(product);
-            }
-            else
-            {
-                return BadRequest();
-            }
-        } 
+        //    return Ok();
+        //}
     }
 }

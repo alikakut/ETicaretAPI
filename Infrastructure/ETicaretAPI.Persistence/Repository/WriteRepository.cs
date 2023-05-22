@@ -9,6 +9,7 @@ using ETicaretAPI.Domain.Entities.Common;
 using ETicaretAPI.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ETicaretAPI.Persistence.Repository
 {
@@ -26,7 +27,7 @@ namespace ETicaretAPI.Persistence.Repository
             EntityEntry<T> entityEntry = await Table.AddAsync(model);
             return entityEntry.State==EntityState.Added;
         }
-        public bool Add(List<T> data)
+        public bool Add(T data)
         {
             Table.AddRange(data);
             return true;

@@ -14,7 +14,7 @@ namespace ETicaretAPI.Application.Repository
         bool Remove(T model);
         bool Remove(List<T> data);
         Task<bool> AddAsync(T model);
-        bool Add(List<T> data);
+        bool Add(T data);
         Task<int> SaveAsync();
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ETicaretAPI.Domain.Entities;
 using ETicaretAPI.Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ETicaretAPI.Persistence.Context
 {
@@ -14,7 +16,7 @@ namespace ETicaretAPI.Persistence.Context
         public ETicaretAPIDbContext(DbContextOptions options) : base(options)
         {
         }
-
+        public const string Connection = "ConnectionStrings";
         protected ETicaretAPIDbContext()
         {
         }
