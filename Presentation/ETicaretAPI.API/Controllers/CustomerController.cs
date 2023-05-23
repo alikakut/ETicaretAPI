@@ -28,5 +28,15 @@ namespace ETicaretAPI.API.Controllers
         {
             return Ok(_customerWriteRepository.Add(customer));
         }
+        [HttpPut]
+        public IActionResult Update([FromBody]Customer customer)
+        {
+            return Ok(_customerWriteRepository.Update(customer));
+        }
+        [HttpDelete]    
+        public IActionResult Delete([FromBody]Customer customer)
+        {
+            return Ok(_customerWriteRepository.Remove(customer));
+        }
     }
 }

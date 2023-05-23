@@ -47,7 +47,7 @@ namespace ETicaretAPI.Persistence.Repository
 
         public bool Remove(List<T> data)
         {
-           Table.RemoveRange(data);
+            Table.RemoveRange(data);
             return true;
         }
         public bool Update(T entity)
@@ -57,6 +57,35 @@ namespace ETicaretAPI.Persistence.Repository
         }
         public async Task<int> SaveAsync()
         => await _context.SaveChangesAsync();
-    
+
+        //public bool DeleteById(long Id)
+        //{
+        //    return true;
+        //}
+
+        public bool DeleteById(long Id)
+        {
+            var dbContext = new ETicaretAPIDbContext();
+
+            try
+            {
+                var entity = dbContext.orders.FirstOrDefault(e => e.Id == Id);
+
+                if (entity != null)
+                {
+                    dbContext.orders.Remove(entity);
+                    dbContext.SaveChanges();
+                    return true;
+                }
+
+                return false;
+            }
+            finally
+            {
+                dbContext.Dispose();
+            }
+        }
+
+
     }
 }

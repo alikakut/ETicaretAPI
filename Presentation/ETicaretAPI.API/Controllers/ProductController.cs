@@ -31,13 +31,15 @@ namespace ETicaretAPI.API.Controllers
         {
             return Ok(_productWriteRepository.Add(product));
         }
-        //[HttpPut]
-        //public async Task<ActionResult> Put( VM_Update_Product model)
-        //{
-        //    await _productReadRepository.GetByIdAsync(new()
-        //        );
-
-        //    return Ok();
-        //}
+        [HttpPut]
+        public IActionResult Update([FromBody] Product product)
+        {
+            return Ok(_productWriteRepository.Update(product));
+        }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long Id) 
+        {
+            return Ok(_productWriteRepository.DeleteById(Id));
+        }
     }
 }

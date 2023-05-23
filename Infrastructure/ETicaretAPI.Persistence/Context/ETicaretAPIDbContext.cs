@@ -17,7 +17,7 @@ namespace ETicaretAPI.Persistence.Context
         {
         }
         public const string Connection = "ConnectionStrings";
-        protected ETicaretAPIDbContext()
+        public ETicaretAPIDbContext()
         {
         }
         public DbSet<Product>  products { get; set; }   
