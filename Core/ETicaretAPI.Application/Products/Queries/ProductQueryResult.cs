@@ -1,11 +1,12 @@
 ﻿using ETicaretAPI.Domain.Entities;
 
-namespace ETicaretAPI.Application.Orders.Queries.GetOrder
+namespace ETicaretAPI.Application.Products.Queries
 {
-    public record OrderQueryResultt(
+    public record ProductQueryResult(
     int CurrentPage,
     int PageSize,
     int TotalPageCount,
     int TotalRowCount,
-    List<Order> Data);
+    List<Product> Data);
+
 }

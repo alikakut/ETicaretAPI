@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ETicaretAPI.Application.Products.Commands.CreateProduct
+namespace ETicaretAPI.Application.Products.Queries
 {
-    public class CreateProductCommonValidator
+    public class ProductQueryValidator
     {
     }
 }

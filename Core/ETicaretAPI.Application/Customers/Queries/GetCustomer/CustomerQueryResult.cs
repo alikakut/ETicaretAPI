@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ETicaretAPI.Domain.Entities;
 
 namespace ETicaretAPI.Application.Customers.Queries.GetCustomer
 {
-    internal class CustomerQueryResult
-    {
-    }
+    public record CustomerQueryResult(
+    int CurrentPage,
+    int PageSize,
+    int TotalPageCount,
+    int TotalRowCount,
+    List<Customer> Data);
 }

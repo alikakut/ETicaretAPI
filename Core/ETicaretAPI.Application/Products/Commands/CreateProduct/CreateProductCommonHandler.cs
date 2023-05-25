@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ETicaretAPI.Application.Products.Commands.CreateProduct
 {
-    internal class CreateProductCommonHandler
+    public class CreateProductCommonHandler
     {
     }
 }

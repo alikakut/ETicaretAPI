@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ETicaretAPI.Application.Products.Commands.DeleteProduct
 {
-    internal class DeleteProductCommonHandler
+    public class DeleteProductCommonHandler
     {
     }
 }
