@@ -24,7 +24,7 @@ namespace ETicaretAPI.Domain.Entities.Common
         public DateTime UpdateDate { get; set; }
 
         [Column("is_deleted")]
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; }=false;
 
     }
 }
