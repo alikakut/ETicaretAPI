@@ -14,8 +14,7 @@ namespace ETicaretAPI.Domain.Entities
         [Column("Name")]
         public string Name { get; set; }
 
-        [Column("is_deleted")]
-        public bool IsDeleted { get; set; } 
+       
         //public ICollection<Order> Orders { get; set;}
     }
 }

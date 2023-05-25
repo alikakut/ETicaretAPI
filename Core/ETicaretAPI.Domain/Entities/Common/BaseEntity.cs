@@ -23,5 +23,8 @@ namespace ETicaretAPI.Domain.Entities.Common
         [Column("UpdateDate")]
         public DateTime UpdateDate { get; set; }
 
+        [Column("is_deleted")]
+        public bool IsDeleted { get; set; }
+
     }
 }
