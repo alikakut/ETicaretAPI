@@ -2,7 +2,7 @@
 
 namespace ETicaretAPI.Application.Orders.Queries.GetOrder
 {
-    public record OrderQueryResultt(
+    public record OrderQueryResult(
     int CurrentPage,
     int PageSize,
     int TotalPageCount,

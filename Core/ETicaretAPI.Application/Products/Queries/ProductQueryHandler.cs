@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ETicaretAPI.Application.Products.Queries
 {
-    internal class ProductQueryHandler
+    public class ProductQueryHandler
     {
     }
 }

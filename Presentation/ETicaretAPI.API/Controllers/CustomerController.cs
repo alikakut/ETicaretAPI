@@ -33,10 +33,10 @@ namespace ETicaretAPI.API.Controllers
         {
             return Ok(_customerWriteRepository.Update(customer));
         }
-        [HttpDelete]    
-        public IActionResult Delete([FromBody]Customer customer)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id, [FromBody] Customer customer)
         {
-            return Ok(_customerWriteRepository.Remove(customer));
+            return Ok(_customerWriteRepository.Remove(customer,id));
         }
     }
 }

@@ -11,5 +11,5 @@ using MediatR;
 
 namespace ETicaretAPI.Application.Customers.Queries.GetCustomer
 {
-    public record CustomerQuery :BaseQuery, IRequest<ErrorOr<Customer>>;
+    public record CustomerQuery :BaseQuery, IRequest<ErrorOr<CustomerQueryResult>>;
 }

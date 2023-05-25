@@ -8,8 +8,8 @@ namespace ETicaretAPI.Application.Common.Model
 {
     public record BaseQuery
     {
-        public int Id { get; set; }
-        public string Page { get; set; }
-        public string Size { get; set; }
+        public long Id { get; set; }
+        public int Page { get; set; }
+        public int Size { get; set; }
     }
 }

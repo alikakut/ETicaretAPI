@@ -10,5 +10,5 @@ using MediatR;
 
 namespace ETicaretAPI.Application.Orders.Queries.GetOrder
 {
-    public record OrderQuery : BaseQuery,IRequest<ErrorOr<Order>>;
+    public record OrderQuery : BaseQuery,IRequest<ErrorOr<OrderQueryResult>>;
 }

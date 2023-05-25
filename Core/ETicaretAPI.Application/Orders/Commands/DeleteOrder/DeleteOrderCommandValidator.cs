@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentValidation;
 
 namespace ETicaretAPI.Application.Orders.Commands.DeleteOrder
 {
-    internal class DeleteOrderCommandValidator
+    public class DeleteOrderCommandValidator : AbstractValidator<DeleteOrderCommand>
     {
+        public DeleteOrderCommandValidator()
+        {
+            RuleFor(x => x.id).NotEmpty();
+        }
     }
 }

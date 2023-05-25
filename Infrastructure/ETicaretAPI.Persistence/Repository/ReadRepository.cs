@@ -22,6 +22,11 @@ namespace ETicaretAPI.Persistence.Repository
 
         public DbSet<T> Table =>_context.Set<T>();
 
+        public Task<T> Add(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public IQueryable<T> GetAll(bool tracking = true)
         {
             var query = Table.AsQueryable();

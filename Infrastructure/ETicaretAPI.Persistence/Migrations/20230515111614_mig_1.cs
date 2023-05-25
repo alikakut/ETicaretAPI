@@ -55,7 +55,7 @@ namespace ETicaretAPI.Persistence.Migrations
                     CustomerId = table.Column<long>(type: "bigint", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
                     Address = table.Column<string>(type: "text", nullable: false),
-                    CustomerId1 = table.Column<int>(type: "integer", nullable: false),
+                    CustomerId1 = table.Column<long>(type: "integer", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdateBy = table.Column<string>(type: "text", nullable: true),
                     UpdateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)

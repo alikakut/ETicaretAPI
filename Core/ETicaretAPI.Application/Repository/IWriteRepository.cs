@@ -10,8 +10,8 @@ namespace ETicaretAPI.Application.Repository
     public interface IWriteRepository<T> : IRepository<T> where T : BaseEntity
     {
         bool Update(T entity);
-        Task<bool> RemoveAsync(String Id);
-        bool Remove(T model);
+        Task<bool> RemoveAsync(int Id);
+        bool Remove(T model,int id);
         bool Remove(List<T> data);
         bool DeleteById(long Id);
         Task<bool> AddAsync(T model);

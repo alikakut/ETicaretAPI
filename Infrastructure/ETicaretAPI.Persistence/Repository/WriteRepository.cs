@@ -30,19 +30,21 @@ namespace ETicaretAPI.Persistence.Repository
         public bool Add(T data)
         {
             Table.AddRange(data);
+            _context.SaveChanges();
             return true;
         }
 
-        public bool Remove(T model)
+        public bool Remove(T model, int id)
         {
-          EntityEntry<T> entityEntry = Table.Remove(model);
-           return entityEntry.State == EntityState.Deleted;
+            model.Id = id;
+            EntityEntry<T> entityEntry = Table.Remove(model);
+            _context.SaveChanges();
+            return entityEntry.State == EntityState.Deleted;
         }
-
-        public async Task<bool> RemoveAsync(string Id)
+        public async Task<bool> RemoveAsync(int Id)
         {
-           T model = await Table.FirstOrDefaultAsync(data => data.Id == int.Parse(Id));
-           return Remove(model);
+           T model = await Table.FirstOrDefaultAsync(data => data.Id == Id);
+           return Remove(model,Id);
         }
 
         public bool Remove(List<T> data)
@@ -53,6 +55,7 @@ namespace ETicaretAPI.Persistence.Repository
         public bool Update(T entity)
         {
             EntityEntry<T> entityEntry = Table.Update(entity);
+            _context.SaveChanges();
             return entityEntry.State == EntityState.Modified;
         }
         public async Task<int> SaveAsync()

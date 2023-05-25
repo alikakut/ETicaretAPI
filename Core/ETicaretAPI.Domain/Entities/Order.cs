@@ -8,6 +8,7 @@ using ETicaretAPI.Domain.Entities.Common;
 
 namespace ETicaretAPI.Domain.Entities
 {
+    [Table("orders")]
     public class Order :BaseEntity
     {
         [Column("Description")]
