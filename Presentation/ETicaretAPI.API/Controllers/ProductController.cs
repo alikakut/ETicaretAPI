@@ -37,7 +37,7 @@ namespace ETicaretAPI.API.Controllers
             return Ok(_productWriteRepository.Update(product));
         }
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id, [FromBody] Product product)
+        public IActionResult Delete(int id, [FromQuery] Product product)
         {
             return Ok(_productWriteRepository.Remove(product,id));
         }

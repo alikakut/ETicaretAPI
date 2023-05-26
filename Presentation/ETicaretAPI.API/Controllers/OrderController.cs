@@ -1,7 +1,5 @@
 ﻿using ETicaretAPI.Application.Repository.Orders;
-using ETicaretAPI.Application.ViewModels.Products;
 using ETicaretAPI.Domain.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ETicaretAPI.API.Controllers
