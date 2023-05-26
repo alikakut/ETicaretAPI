@@ -33,7 +33,7 @@ namespace ETicaretAPI.API.Controllers
             return Ok(_orderWriteRepository.Update(order));
         }
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id, [FromBody] Order order)
+        public IActionResult Delete(int id, [FromQuery] Order order)
         {
             return Ok(_orderWriteRepository.Remove(order,id));
         }
